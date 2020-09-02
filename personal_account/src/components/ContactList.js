@@ -121,7 +121,7 @@ function ContactList({logout}) {
 	}
 
     const ShowContacts = () => {
-		if (contacts !== '') {
+		if (contacts !== undefined) {
 			const data = contacts.map((person) =>
                     <div className={styles.contact_box} key={`contact_${person.phone}`}>
                         <div className={styles.delete_btn}

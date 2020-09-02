@@ -42,13 +42,14 @@ export const authLogin = (username, password) => {
 		dispatch(authStart());
 		
 		const data = {
-			'username': username,
-			'password': password
+			"login": {
+				"username": username,
+				"password": password
+			}
 		};
 
-		fetch(`${url.z3hdro_url}/rest-auth/login/`, {
+		fetch(`${url.API_LOGIN}`, {
 			method: 'POST',
-			mode: 'cors',
 			headers: {
 				'Content-Type': 'application/json'
 			},
@@ -59,11 +60,12 @@ export const authLogin = (username, password) => {
 				if (!res.ok) throw res;
 				return res.json();})
 			.catch(err => {
+				console.log(err);
 				dispatch(authFail(err));
 			})
 			.then(json => {
 				console.log(json)
-				const token = json.key;
+				const token = json.login.username;
 				// expiration time for 5 hour
 				const expirationDate = new Date(new Date().getTime() + 3600 * 5 * 1000);
 				localStorage.setItem('token', token);
