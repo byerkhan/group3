@@ -16,10 +16,9 @@ function ContactList({logout}) {
     const [toggleBack, setToggleBack] = useState(false)
     
     const fetchData = useCallback(() => {
-        fetch(`${url.z3hdro_url}/users/showusers/`, {
+        fetch(`${url.CN_API}`, {
             method: 'GET',
 			headers: {
-                'Authorization': `Token ${localStorage.getItem('token')}`,
 				'Content-Type': 'application/json'
 			}
 		})
@@ -101,13 +100,9 @@ function ContactList({logout}) {
 
     async function DeleteContact (personName, personNumber) {
         const data = new FormData();
-        data.append('name', personName);
         data.append('phone', personNumber);
-        let response = await fetch(`${url.z3hdro_url}/users/deleteuser/`, {
+        let response = await fetch(`${url.CN_API}/delete_member/`, {
             method: 'POST',
-			headers: {
-				'Authorization': `Token ${localStorage.getItem('token')}`,
-            },
             body: data
         });
         let answer = await response.json();

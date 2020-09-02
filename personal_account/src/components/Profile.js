@@ -8,10 +8,9 @@ export default function UserProfile({id}) {
 	const [personInfo, setPersonInfo] = useState({})
     
 	const fetchData = useCallback(() => {
-        fetch(`${url.z3hdro_url}/users/special/${id}/`, {
+        fetch(`${url.CN_API}/${parseInt(id)}/`, {
             method: 'GET',
 			headers: {
-				'Authorization': `Token ${localStorage.getItem('token')}`,
 				'Content-Type': 'application/json'
 			}
 		})
@@ -33,11 +32,8 @@ export default function UserProfile({id}) {
 		for (const [key, value] of Object.entries(personInfo)) {
 			data.append(key, value)
 		}
-		let response = await fetch(`${url.z3hdro_url}/users/edituser/${id}/`, {
+		let response = await fetch(`${url.CN_API}/change_member/`, {
             method: 'POST',
-			headers: {
-				'Authorization': `Token ${localStorage.getItem('token')}`,
-			},
 			body: data
 		});
 		let answer = await response.json();

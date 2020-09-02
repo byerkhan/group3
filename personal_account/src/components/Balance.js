@@ -14,11 +14,8 @@ export default function Balance() {
 		for (const [key, value] of Object.entries(data)) {
 			dataToSend.append(key, value)
 		}
-		let response = await fetch(`${url.z3hdro_url}/users/addbalance/`, {
+		let response = await fetch(`${url.CN_API}/${parseInt(data.phone)}`, {
             method: 'POST',
-			headers: {
-				'Authorization': `Token ${localStorage.getItem('token')}`,
-			},
 			body: dataToSend
 		});
 		let answer = await response.json();

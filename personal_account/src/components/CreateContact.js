@@ -14,14 +14,10 @@ export default function CreateInput({contacts, setToggle, fetchData}) {
         if (event.key === 'Enter') {
             if (user !== '' && number!== '') {
                 const data = new FormData();
-                data.append('name', user);
                 data.append('phone', number)
                 console.log(data)
-                let response = await fetch(`${url.z3hdro_url}/users/createuser/`, {
+                let response = await fetch(`${url.CN_API}/add_member/`, {
                     method: 'POST',
-                    headers: {
-                        'Authorization': `Token ${localStorage.getItem('token')}`,
-                    },
                     body: data
                 });
                 let answer = await response.json();
