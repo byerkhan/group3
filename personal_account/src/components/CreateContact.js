@@ -14,6 +14,7 @@ export default function CreateInput({contacts, setToggle, fetchData}) {
         if (event.key === 'Enter') {
             if (user !== '' && number!== '') {
                 const data = new FormData();
+                data.append('first_name', user)
                 data.append('phone', number)
                 console.log(data)
                 let response = await fetch(`${url.CN_API}/add_member/`, {

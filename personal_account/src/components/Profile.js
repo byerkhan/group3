@@ -19,7 +19,7 @@ export default function UserProfile({id}) {
 			})
 			.then(json => { 
 					console.log(json)
-					setPersonInfo(json.result)
+					setPersonInfo(json.result[0])
 			});
     }, [])
     
@@ -30,7 +30,20 @@ export default function UserProfile({id}) {
 	async function sendDatatoServer() {
 		const data = new FormData();
 		for (const [key, value] of Object.entries(personInfo)) {
-			data.append(key, value)
+			if (key === 'sex') {
+				if (personInfo['sex'] === '男') {
+					data.append(key, 0)
+				} else if (personInfo['sex'] === '女') {
+					data.append(key, 1)
+				} else {
+					data.append(key, 0)
+				}
+
+				
+			}
+			else {
+				data.append(key, value)
+			}
 		}
 		let response = await fetch(`${url.CN_API}/change_member/`, {
             method: 'POST',
@@ -55,7 +68,9 @@ export default function UserProfile({id}) {
 						<img src='http://s1.iconbird.com/ico/2014/1/598/w128h1281390846445leftround128.png' alt='back' />
 					</Link>
 				</div>
-				<p className={styles.header_chat}>编辑会员</p>
+				<div className={styles.header_chat}>
+					编辑会员
+				</div>
 				<div className={styles.saveBtn}
 					role = 'button'
 					onClick = {() => {

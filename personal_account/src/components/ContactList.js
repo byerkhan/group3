@@ -16,7 +16,7 @@ function ContactList({logout}) {
     const [toggleBack, setToggleBack] = useState(false)
     
     const fetchData = useCallback(() => {
-        fetch(`${url.CN_API}`, {
+        fetch(`${url.CN_API}/`, {
             method: 'GET',
 			headers: {
 				'Content-Type': 'application/json'

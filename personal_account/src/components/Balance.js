@@ -14,7 +14,7 @@ export default function Balance() {
 		for (const [key, value] of Object.entries(data)) {
 			dataToSend.append(key, value)
 		}
-		let response = await fetch(`${url.CN_API}/${parseInt(data.phone)}`, {
+		let response = await fetch(`${url.CN_API}/deposit/${parseInt(data.phone)}/`, {
             method: 'POST',
 			body: dataToSend
 		});
