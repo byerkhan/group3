@@ -41,7 +41,7 @@ function ContactList({logout}) {
 
         const FindContact = () => {
             let filteredUsers = {};
-            const filtered = contacts.filter(contact => contact.phone.includes(user));
+            const filtered = contacts.filter(contact => `${contact.phone}`.includes(user));
             setFilter(filtered);
         }
 
