@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import { 
 	Router,
 	Switch,
@@ -12,7 +12,6 @@ import LoginPage from '../components/LoginPage';
 import ContactList from '../components/ContactList';
 import Buttons from '../components/Button';
 import Balance from '../components/Balance';
-import * as actions from '../actions/auth';
 import UserProfile from '../components/Profile';
 export const history = createBrowserHistory();
 
@@ -23,17 +22,16 @@ function Profile() {
 	);
 }
 
-function Routes({isAuthenticated, onTryAutoSignUp}) {
-	useEffect(() => onTryAutoSignUp()
-		, [onTryAutoSignUp]);
-
-    const toggle = localStorage.getItem('token');
+export default function Routes() {
+	const [toggle, setToggle] = useState(localStorage.getItem('token'))
+	// const toggle = localStorage.getItem('token');
+	
 	return (
 		<Router history={history}>
 			<Switch>
 				<Route exact path='/login/'>
 					{(toggle !== null) ? <Redirect exact from = '/login/' to='/main/' /> : <Redirect to='/login/' />}
-					<LoginPage isAuthenticated = {isAuthenticated} />
+					<LoginPage />
 				</Route>
                 <Route exact path='/contactlist/'>
                     {(toggle !== null) ? <ContactList /> : <Redirect exact from = '/contactlist/' to='/login/' />}
@@ -55,15 +53,3 @@ function Routes({isAuthenticated, onTryAutoSignUp}) {
 	);
 }
 
-const mapStateToProps = state => {
-	return {
-		isAuthenticated: state.token !== null
-	};
-};
-const mapDispatchToProps = dispatch => {
-	return {
-		onTryAutoSignUp: () => dispatch(actions.authCheckState())
-	};
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Routes);

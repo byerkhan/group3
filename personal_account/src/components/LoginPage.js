@@ -1,18 +1,19 @@
 import React, {useState} from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../actions/auth';
 import PropTypes from 'prop-types'
 import styles from '../styles/loginpage.module.css';
 
 
 
-function LoginPage({ onAuth}) {
+export default function LoginPage() {
 	const [values, setValues] = useState({username: '',password: ''});
     
 	const sendData = event => {
 		event.preventDefault();
-		onAuth(values.username, values.password);
-		setValues({username: '',password: ''});
+		// setValues({username: '',password: ''});
+		localStorage.setItem('token', values.username);
+		// eslint-disable-next-line no-restricted-globals
+		location.reload()
 	};
 
 	const sendLogin = event => {
@@ -36,7 +37,6 @@ function LoginPage({ onAuth}) {
 							username: event.target.value})}
 						name='uname' 
 						required/>
-
 					<label htmlFor='psw'><p>密码</p></label>
 					<input 
 						type='password' 
@@ -63,15 +63,3 @@ function LoginPage({ onAuth}) {
 		</div>
 	);
 }
-
-const mapDispatchToProps = dispatch => {
-	return {
-		onAuth: (username, password) => dispatch(actions.authLogin(username, password))
-	};
-};
-
-export default connect(null, mapDispatchToProps)(LoginPage);
-
-LoginPage.propTypes = {
-	onAuth : PropTypes.func.isRequired 
-};

@@ -19,7 +19,8 @@ export default function Balance() {
 			body: dataToSend
 		});
 		let answer = await response.json();
-		console.log(answer);
+        console.log(answer);
+        setData({phone: '', balance: ''});
 	};
 
     const Header = () => {

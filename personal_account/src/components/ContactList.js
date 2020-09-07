@@ -1,13 +1,12 @@
 import React, {useState, useEffect, useRef, useCallback} from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../actions/auth';
 import styles from '../styles/contacts.module.css';
 import CreateInput from './CreateContact';
 import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom';
 import * as url from './config';
 
-function ContactList({logout}) {
+export default function ContactList() {
     const myRef = useRef(null);
     const [contacts, setContacts] = useState([]);
     const [toggle, setToggle] = useState(false);
@@ -50,7 +49,12 @@ function ContactList({logout}) {
                 <div className={styles.logout_btn_container}>
                     <span className={styles.logout_btn}
                         role = 'button'
-                        onClick = {logout}
+                        onClick = {() => {
+                            localStorage.removeItem('token')
+                            // eslint-disable-next-line no-restricted-globals
+                            location.reload()
+                            return false;
+                        }}
                         onKeyPress = {() => {}}
                         tabIndex = '0'>
                             退出
@@ -178,11 +182,3 @@ function ContactList({logout}) {
 ContactList.propTypes = {
     logout : PropTypes.func.isRequired
 };
-
-const mapDispatchToProps = dispatch => {
-	return {
-		logout: () => dispatch(actions.logout())
-	};
-};
-
-export default connect(null, mapDispatchToProps)(ContactList);  
