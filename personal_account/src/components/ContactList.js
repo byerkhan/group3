@@ -61,7 +61,7 @@ export default function ContactList() {
                     </span>
                 </div>
                 <div className={styles.main_btn_container}>
-                <Link to= {'/main/'} style={{textDecoration: 'none', color: 'black'}}>
+                <Link to= {'/main/'} style={{textDecoration: 'none', color: 'white'}}>
                     <span className={styles.logout_btn}
                         role = 'button'
                         onClick = {() => {}}

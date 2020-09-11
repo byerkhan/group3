@@ -69,7 +69,7 @@ export default function UserProfile({id}) {
 					</Link>
 				</div>
 				<div className={styles.header_chat}>
-					编辑会员
+					<h1 >编辑会员</h1>
 				</div>
 				<div className={styles.saveBtn}
 					role = 'button'

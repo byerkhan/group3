@@ -1,4 +1,4 @@
 # membership-app
 SPA-application
 
-более подробная инструкция внутри personal_account/README.md
+more detailed instruction inside personal_account / README.md

@@ -1,8 +1,9 @@
 .contact_list_header {
     padding: 2vh;
-    background-color: rgb(69, 87, 87);
+    background-color: #242f42;
     display: flex;
     justify-content:space-between;
+   
 }
 
 .logout_btn_container {
@@ -20,6 +21,7 @@
     border-radius: 2vh;
     padding: 1vh;
     background-color: rgb(170, 170, 170);
+    color: white;
 }
 
 .finder_contact_container {

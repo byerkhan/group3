@@ -8,7 +8,7 @@ export default function Buttons() {
         <div className={styles.Button}>
             <div className={styles.container}>
                 <div className={styles.Header}>
-                    <h1>饮餐管理系统</h1>
+                    <h1>餐饮会员管理系统</h1>
                 </div>
                 <div className={styles.Buttoncontainer}>
                     <Link to='/contactlist/' style={{textDecoration: 'none'}}>

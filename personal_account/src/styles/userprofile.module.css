@@ -9,10 +9,11 @@
   }
   
   .chat_header {
+    color: white;
     padding-top: 1vh;
     padding-bottom: 1vh;
     flex: 2;
-    background-color: rgb(69, 87, 87);
+    background-color: #242f42;
     height: 6vh;
     width: 100%;
     position: fixed;
@@ -31,9 +32,9 @@
   }
   
   .header_chat {
-    padding-left: 5vh;
+    padding-right: 10vh;
     font-weight: 500;
-    font-size: 3.5vh;
+    font-size: 2.5vh;
     font-family: Segoe UI, sans-serif;
     flex: 1;
   }
@@ -56,7 +57,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: stretch;
-    background-color: rgb(255, 255, 255);
+    background-color: #eef1f6;
   }
   
   .fullname {

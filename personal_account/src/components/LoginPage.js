@@ -24,7 +24,7 @@ export default function LoginPage() {
 
 	return (
 		<div className={styles.loginPageContainer}>
-			<h1 style={{textAlign:"center"}}>餐饮管理系统</h1>
+			<h1 style={{textAlign:"center"}}>餐饮会员管理系统</h1>
 			<form method='post'>
 				<div className={styles.container}>
 					<label htmlFor='uname'><p>用户</p></label>

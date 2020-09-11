@@ -1,5 +1,5 @@
 .Button {
-    background-color: rgb(69, 87, 87);
+    background-color: #242f42;
     background-repeat: repeat;
     background-size: cover;
     height: 100vh;
@@ -17,6 +17,7 @@
 }
 
 .Header {
+    color: white;
     flex: 1;
     padding-top: 17vh;
     justify-content: center;
@@ -25,6 +26,7 @@
 }
 
 .Buttoncontainer {
+    color: white;
     flex: 2;
     display: flex;
     justify-content: space-evenly;

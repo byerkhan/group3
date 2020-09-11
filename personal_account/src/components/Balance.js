@@ -26,8 +26,11 @@ export default function Balance() {
     const Header = () => {
         return (
             <div className={styles.header}>
+                <div className={styles.Header}>
+                <h1>餐饮会员管理系统</h1>
+                </div>
                 <div className={styles.main}>
-                    <Link to= {'/main/'} style={{textDecoration: 'none', color: 'black'}}>
+                    <Link to= {'/main/'} style={{textDecoration: 'none', color: 'white'}}>
                         <span className={styles.menu_btn}
                             role = 'button'
                             onClick = {() => {}}
